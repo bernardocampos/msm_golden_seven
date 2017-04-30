@@ -1,0 +1,49 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">MyMDB</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/movies/">Movies</a>
+        </li>
+        <li>
+          <a href="/directors/">Directors</a>
+        </li>
+        <li class="active">
+          <a href="/actors/">Actors<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<a class="btn btn-default" href="/actors/new">Add actor</a>
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>DOB</th>
+    <th></th>
+    <th></th>
+    <th></th>
+</tr>
+<% @actor.each do |actor| %>
+<tr>
+  <td><img src="<%= actor.image_url %>")</td>
+  <td><%= actor.name %></td>
+  <td><%= actor.dob %></td>
+  <td><a class="btn btn-default" href="/actors/<%= actor.id %>">Details</a></td>
+  <td><a class="btn btn-default" href="/actors/<%= actor.id %>/edit">Edit</a></td>
+  <td><a class="btn btn-default" href="/delete_actor/<%= actor.id %>">Delete</a></td>
+</tr>
+<% end %>
+</table>
